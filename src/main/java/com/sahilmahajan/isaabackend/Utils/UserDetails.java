@@ -1,4 +1,50 @@
 package com.sahilmahajan.isaabackend.Utils;
 
 public class UserDetails {
+
+    private String AppCodeName;
+    private String AppVersion;
+    private String UserAgent;
+    private String OperatingSystem;
+    private String ip;
+
+    public String getAppCodeName() {
+        return AppCodeName;
+    }
+
+    public void setAppCodeName(String appCodeName) {
+        AppCodeName = appCodeName;
+    }
+
+    public String getAppVersion() {
+        return AppVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        AppVersion = appVersion;
+    }
+
+    public String getUserAgent() {
+        return UserAgent;
+    }
+
+    public void setUserAgent(String userAgent) {
+        UserAgent = userAgent;
+    }
+
+    public String getOperatingSystem() {
+        return OperatingSystem;
+    }
+
+    public void setOperatingSystem(String operatingSystem) {
+        OperatingSystem = operatingSystem;
+    }
+
+    public String getIP() {
+        return ip;
+    }
+
+    public void setIP(String IP) {
+        this.ip = IP;
+    }
 }
