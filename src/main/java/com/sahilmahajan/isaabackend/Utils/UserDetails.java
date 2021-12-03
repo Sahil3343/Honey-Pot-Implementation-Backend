@@ -7,6 +7,26 @@ public class UserDetails {
     private String UserAgent;
     private String OperatingSystem;
     private String ip;
+    private String Latitude;
+    private String Longitude;
+
+
+
+    public String getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        Latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        Longitude = longitude;
+    }
 
     public String getAppCodeName() {
         return AppCodeName;

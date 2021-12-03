@@ -2,6 +2,7 @@ package com.sahilmahajan.isaabackend.Operations;
 
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import com.sahilmahajan.isaabackend.Utils.BCrypt;
 import com.sahilmahajan.isaabackend.Utils.LoginAuthResultUtil;
 import com.sahilmahajan.isaabackend.Utils.LoginAuthUtil;
 import org.bson.Document;
@@ -14,10 +15,13 @@ public class LoginAuthentication {
 
         LoginAuthResultUtil loginAuthResultUtil = new LoginAuthResultUtil();
 
+        String Salt = "$2a$12$XCVUHMLtK2cyU4nzbczrWe";
+        String Hash = BCrypt.hashpw(loginAuthUtil.getPassword(), Salt);
+
         try {
             MongoDB.Connect("ISAA", "UserCreds");
 
-            Document ValidateUser = mongoDB.getcollection().find(Filters.and(Filters.eq("Username", loginAuthUtil.getUsername()), Filters.eq("Password", loginAuthUtil.getPassword()))).first();
+            Document ValidateUser = mongoDB.getcollection().find(Filters.and(Filters.eq("Username", loginAuthUtil.getUsername()), Filters.eq("Password", Hash))).first();
 
             if (ValidateUser != null) {
                 loginAuthResultUtil.setLoginStatus(true);

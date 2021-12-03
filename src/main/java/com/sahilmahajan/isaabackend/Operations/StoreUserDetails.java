@@ -16,7 +16,9 @@ public class StoreUserDetails {
                     .append("AppVersion", userDetails.getAppVersion())
                     .append("UserAgent", userDetails.getUserAgent())
                     .append("OS", userDetails.getOperatingSystem())
-                    .append("IP", userDetails.getIP());
+                    .append("IP", userDetails.getIP())
+                    .append("Latitude", userDetails.getLatitude())
+                    .append("Longitude", userDetails.getLongitude());
 
             mongoDB.getcollection().insertOne(Store);
 

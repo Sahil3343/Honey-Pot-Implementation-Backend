@@ -5,6 +5,7 @@ import com.sahilmahajan.isaabackend.Operations.StoreUserDetails;
 import com.sahilmahajan.isaabackend.Utils.LoginAuthResultUtil;
 import com.sahilmahajan.isaabackend.Utils.LoginAuthUtil;
 import com.sahilmahajan.isaabackend.Utils.UserDetails;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,8 +13,9 @@ public class MainController {
 
     @CrossOrigin(origins = "http://localhost")
     @PostMapping(value = "/login", consumes = "application/json")
-    public LoginAuthResultUtil LoginAuth(@RequestBody LoginAuthUtil loginAuthUtil) {
+    public LoginAuthResultUtil LoginAuth(@Validated @RequestBody LoginAuthUtil loginAuthUtil) {
         System.out.println(loginAuthUtil.getUsername());
+        System.out.println(loginAuthUtil.getPassword());
         LoginAuthentication authentication = new LoginAuthentication();
         return authentication.LoginAuthentication(loginAuthUtil);
     }
